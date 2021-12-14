@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "68191869493",
+    "project_id": "aveosoft-d10ae",
+    "storage_bucket": "aveosoft-d10ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68191869493:android:e6c495fa5edac1b5f06f7c",
+        "android_client_info": {
+          "package_name": "com.example.aveosoft_tech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68191869493-95n18eujfd19p67hr7h0jmddrvm50b7i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aveosoft_tech",
+            "certificate_hash": "cb194ef55cbef6ea6ae14fb6d65540fcf11eb6d4"
+          }
+        },
+        {
+          "client_id": "68191869493-i3hc4n4ttf1e5p36t2eou4tjqa6sdi3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC32sO_1p14Xybdh1gz0czXQzAaocJqIds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68191869493-i3hc4n4ttf1e5p36t2eou4tjqa6sdi3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
