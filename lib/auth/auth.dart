@@ -5,14 +5,14 @@ import 'package:aveosoft_tech/shared/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class AuthScreen extends StatefulWidget {
+  const AuthScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginState createState() => _LoginState();
+  _AuthScreenState createState() => _AuthScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,13 +36,13 @@ class _LoginState extends State<Login> {
                   height: 68.0,
                 ),
                 RoundedButton(context, "Email Signup", () {
-                  Get.to(SignUp());
+                  Get.to(() => SignUp());
                 }),
                 SizedBox(
                   height: 12.0,
                 ),
                 RoundedButton(context, "Email Login", () {
-                  Get.to(SignUp());
+                  Get.to(() => SignUp());
                 }),
                 SizedBox(
                   height: 12.0,
@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
                   height: 12.0,
                 ),
                 RoundedButton(context, "Phone Login", () {
-                  Get.to(SignUp());
+                  Get.to(() => SignUp());
                 }),
               ],
             ),
