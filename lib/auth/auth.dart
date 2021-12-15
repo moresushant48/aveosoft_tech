@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors,prefer_const_literals_to_create_immutables
 
-import 'package:aveosoft_tech/auth/signup.dart';
+import 'package:aveosoft_tech/auth/signin.dart';
+import 'package:aveosoft_tech/auth/signup/signup.dart';
 import 'package:aveosoft_tech/shared/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,7 +43,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   height: 12.0,
                 ),
                 RoundedButton(context, "Email Login", () {
-                  Get.to(() => SignUp());
+                  Get.to(() => SignIn());
                 }),
                 SizedBox(
                   height: 12.0,
