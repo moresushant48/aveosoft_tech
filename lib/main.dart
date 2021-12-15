@@ -24,8 +24,11 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       title: 'Aveosoft',
       themeMode: ThemeMode.dark,
-      theme:
-          ThemeData(primarySwatch: Colors.green, brightness: Brightness.light),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        brightness: Brightness.light,
+        fontFamily: 'Poppins',
+      ),
       darkTheme: ThemeData(brightness: Brightness.dark),
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
