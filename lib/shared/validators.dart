@@ -40,7 +40,7 @@ class Validators {
   static String? validatePhoneNo(String? value) {
     return value!.isEmpty
         ? "Please enter a Phone Number"
-        : GetUtils.isLengthEqualTo(value, 10)
+        : GetUtils.isPhoneNumber(value)
             ? null
             : "Enter a valid Phone Number";
   }
