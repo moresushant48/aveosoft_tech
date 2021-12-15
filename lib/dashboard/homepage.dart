@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () async {
               await AuthenticationHelper()
                   .signOut()
-                  .then((value) => Get.offAll(SplashScreen()));
+                  .then((value) => Get.offAll(() => SplashScreen()));
             },
             icon: Icon(Icons.logout_outlined),
           )
@@ -35,9 +35,8 @@ class _HomePageState extends State<HomePage> {
           return ConstrainedBox(
             constraints: constraints,
             child: SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
-                color: Colors.red,
                 child: Column(
                   children: [
                     Text("This is charts page."),

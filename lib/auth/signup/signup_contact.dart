@@ -1,25 +1,34 @@
 // ignore_for_file: prefer_const_constructors,prefer_const_literals_to_create_immutables
 
-import 'package:aveosoft_tech/auth/signup/signup_contact.dart';
 import 'package:aveosoft_tech/controllers/user.controller.dart';
+import 'package:aveosoft_tech/dashboard/homepage.dart';
+import 'package:aveosoft_tech/model/user.model.dart';
+import 'package:aveosoft_tech/services/auth.service.dart';
+import 'package:aveosoft_tech/services/dbstore.service.dart';
 import 'package:aveosoft_tech/shared/rounded_button.dart';
 import 'package:aveosoft_tech/shared/rounded_field.dart';
 import 'package:aveosoft_tech/shared/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpAddress extends StatefulWidget {
-  const SignUpAddress({Key? key}) : super(key: key);
+class SignUpContact extends StatefulWidget {
+  const SignUpContact({Key? key}) : super(key: key);
 
   @override
-  _SignUpAddressState createState() => _SignUpAddressState();
+  _SignUpContactState createState() => _SignUpContactState();
 }
 
-class _SignUpAddressState extends State<SignUpAddress> {
-  final _signUpAddressKey = GlobalKey<FormState>();
-  TextEditingController streetController = TextEditingController();
-  TextEditingController cityController = TextEditingController();
-  TextEditingController pincodeController = TextEditingController();
+class _SignUpContactState extends State<SignUpContact> {
+  final _signUpContactKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
+  final controller = Get.put(UserController());
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +45,7 @@ class _SignUpAddressState extends State<SignUpAddress> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
-            key: _signUpAddressKey,
+            key: _signUpContactKey,
             child: SizedBox(
               // height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
@@ -52,7 +61,7 @@ class _SignUpAddressState extends State<SignUpAddress> {
                     children: [
                       Flexible(
                         child: Text(
-                          "What is your Address?",
+                          "What is your Contact?",
                           softWrap: true,
                           overflow: TextOverflow.visible,
                           style: TextStyle(
@@ -68,31 +77,26 @@ class _SignUpAddressState extends State<SignUpAddress> {
                   ),
                   RoundedTextField(
                     context,
-                    streetController,
-                    hintText: 'Please enter Street',
-                    keyboardType: TextInputType.streetAddress,
-                    validator: Validators.validateStreet,
+                    emailController,
+                    enabled: false,
+                    initialValue: controller.userModel.value.email,
+                    hintText: 'Please enter an Email',
+                    keyboardType: TextInputType.emailAddress,
+                    validator: Validators.validateEmail,
                   ),
                   RoundedTextField(
                     context,
-                    cityController,
-                    hintText: 'Please enter City',
-                    keyboardType: TextInputType.name,
-                    validator: Validators.validateName,
-                  ),
-                  RoundedTextField(
-                    context,
-                    pincodeController,
-                    hintText: 'Please enter Pincode',
-                    keyboardType: TextInputType.number,
-                    validator: Validators.validatePincode,
+                    phoneController,
+                    hintText: 'Please enter a Phone Number',
+                    keyboardType: TextInputType.phone,
+                    validator: Validators.validatePhoneNo,
                   ),
                   SizedBox(
                     height: 18.0,
                   ),
-                  RoundedButton(context, "Continue", () {
+                  RoundedButton(context, "Submit", () {
                     FocusScope.of(context).unfocus();
-                    saveAddress();
+                    saveContact();
                   }),
                 ],
               ),
@@ -103,14 +107,22 @@ class _SignUpAddressState extends State<SignUpAddress> {
     );
   }
 
-  saveAddress() {
-    if (_signUpAddressKey.currentState!.validate()) {
+  saveContact() {
+    if (_signUpContactKey.currentState!.validate()) {
       try {
-        final controller = Get.put(UserController());
-        controller.userModel.value.street = streetController.text.trim();
-        controller.userModel.value.city = cityController.text.trim();
-        controller.userModel.value.pincode = pincodeController.text.trim();
-        Get.to(() => SignUpContact());
+        controller.userModel.value.email = emailController.text.trim();
+        controller.userModel.value.phone = phoneController.text.trim();
+        //
+        DbStore.userId = AuthenticationHelper().user!.uid;
+
+        UserModel userData = UserModel();
+        userData = controller.userModel.value;
+        userData.uid = DbStore.userId!;
+
+        DbStore.writeUserData(userData);
+
+        //
+        Get.offAll(() => HomePage());
       } catch (e) {
         e.printError();
       }

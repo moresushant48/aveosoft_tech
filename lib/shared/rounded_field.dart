@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 Widget RoundedTextField(
   BuildContext context,
   TextEditingController controller, {
+  bool enabled = true,
+  String initialValue = "",
   String hintText = '',
   TextInputAction textInputAction = TextInputAction.next,
   textInputFormatter,
@@ -13,9 +15,12 @@ Widget RoundedTextField(
   bool obsecureText = false,
   validator,
 }) {
+  initialValue.isNotEmpty ? controller.text = initialValue : "";
+
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
     child: TextFormField(
+      enabled: enabled,
       controller: controller,
       textInputAction: textInputAction,
       keyboardType: keyboardType,

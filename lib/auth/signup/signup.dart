@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors,prefer_const_literals_to_create_immutables
 
+import 'package:aveosoft_tech/auth/signup/signup_name.dart';
+import 'package:aveosoft_tech/controllers/user.controller.dart';
 import 'package:aveosoft_tech/services/auth.service.dart';
 import 'package:aveosoft_tech/shared/overlay_loading.dart';
 import 'package:aveosoft_tech/shared/rounded_button.dart';
@@ -35,7 +37,7 @@ class _SignUpState extends State<SignUp> {
         child: SingleChildScrollView(
           child: Form(
             key: _signupKey,
-            child: Container(
+            child: SizedBox(
               // height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Column(
@@ -103,6 +105,9 @@ class _SignUpState extends State<SignUp> {
                 password: passwordController.text.trim());
             if (GetUtils.isNull(result)) {
               Get.back();
+              final controller = Get.put(UserController());
+              controller.userModel.value.email = emailController.text.trim();
+              Get.to(() => SignUpName());
               Get.snackbar(
                 "Success",
                 "Welcome to Aveosoft",

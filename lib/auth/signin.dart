@@ -36,7 +36,7 @@ class _SignInState extends State<SignIn> {
         child: SingleChildScrollView(
           child: Form(
             key: _signInKey,
-            child: Container(
+            child: SizedBox(
               // height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Column(
