@@ -19,7 +19,7 @@ Widget RoundedTextField(
   initialValue.isNotEmpty ? controller.text = initialValue : "";
 
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+    padding: const EdgeInsets.symmetric(vertical: 8.0),
     child: TextFormField(
       enabled: enabled,
       controller: controller,

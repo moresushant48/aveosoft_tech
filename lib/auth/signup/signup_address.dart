@@ -35,67 +35,70 @@ class _SignUpAddressState extends State<SignUpAddress> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Form(
-            key: _signUpAddressKey,
-            child: SizedBox(
-              // height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          "What is your Address?",
-                          softWrap: true,
-                          overflow: TextOverflow.visible,
-                          style: TextStyle(
-                            fontSize: 32.0,
-                            fontWeight: FontWeight.bold,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _signUpAddressKey,
+              child: SizedBox(
+                // height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            "What is your Address?",
+                            softWrap: true,
+                            overflow: TextOverflow.visible,
+                            style: TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  RoundedTextField(
-                    context,
-                    streetController,
-                    hintText: 'Please enter Street',
-                    keyboardType: TextInputType.streetAddress,
-                    validator: Validators.validateStreet,
-                  ),
-                  RoundedTextField(
-                    context,
-                    cityController,
-                    hintText: 'Please enter City',
-                    keyboardType: TextInputType.name,
-                    validator: Validators.validateName,
-                  ),
-                  RoundedTextField(
-                    context,
-                    pincodeController,
-                    hintText: 'Please enter Pincode',
-                    keyboardType: TextInputType.number,
-                    maxLength: 6,
-                    validator: Validators.validatePincode,
-                  ),
-                  SizedBox(
-                    height: 18.0,
-                  ),
-                  RoundedButton(context, "Continue", () {
-                    FocusScope.of(context).unfocus();
-                    saveAddress();
-                  }),
-                ],
+                      ],
+                    ),
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    RoundedTextField(
+                      context,
+                      streetController,
+                      hintText: 'Please enter Street',
+                      keyboardType: TextInputType.streetAddress,
+                      validator: Validators.validateStreet,
+                    ),
+                    RoundedTextField(
+                      context,
+                      cityController,
+                      hintText: 'Please enter City',
+                      keyboardType: TextInputType.name,
+                      validator: Validators.validateName,
+                    ),
+                    RoundedTextField(
+                      context,
+                      pincodeController,
+                      hintText: 'Please enter Pincode',
+                      keyboardType: TextInputType.number,
+                      maxLength: 6,
+                      validator: Validators.validatePincode,
+                    ),
+                    SizedBox(
+                      height: 18.0,
+                    ),
+                    RoundedButton(context, "Continue", () {
+                      FocusScope.of(context).unfocus();
+                      saveAddress();
+                    }),
+                  ],
+                ),
               ),
             ),
           ),

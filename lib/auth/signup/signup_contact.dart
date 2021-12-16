@@ -44,61 +44,64 @@ class _SignUpContactState extends State<SignUpContact> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Form(
-            key: _signUpContactKey,
-            child: SizedBox(
-              // height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          "What is your Contact?",
-                          softWrap: true,
-                          overflow: TextOverflow.visible,
-                          style: TextStyle(
-                            fontSize: 32.0,
-                            fontWeight: FontWeight.bold,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _signUpContactKey,
+              child: SizedBox(
+                // height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            "What is your Contact?",
+                            softWrap: true,
+                            overflow: TextOverflow.visible,
+                            style: TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  RoundedTextField(
-                    context,
-                    emailController,
-                    enabled: false,
-                    initialValue: controller.userModel.value.email,
-                    hintText: 'Please enter an Email',
-                    keyboardType: TextInputType.emailAddress,
-                    validator: Validators.validateEmail,
-                  ),
-                  RoundedTextField(
-                    context,
-                    phoneController,
-                    hintText: 'Please enter a Phone Number',
-                    keyboardType: TextInputType.phone,
-                    validator: Validators.validatePhoneNo,
-                  ),
-                  SizedBox(
-                    height: 18.0,
-                  ),
-                  RoundedButton(context, "Submit", () {
-                    FocusScope.of(context).unfocus();
-                    saveContact();
-                  }),
-                ],
+                      ],
+                    ),
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    RoundedTextField(
+                      context,
+                      emailController,
+                      enabled: false,
+                      initialValue: controller.userModel.value.email,
+                      hintText: 'Please enter an Email',
+                      keyboardType: TextInputType.emailAddress,
+                      validator: Validators.validateEmail,
+                    ),
+                    RoundedTextField(
+                      context,
+                      phoneController,
+                      hintText: 'Please enter a Phone Number',
+                      keyboardType: TextInputType.phone,
+                      validator: Validators.validatePhoneNo,
+                    ),
+                    SizedBox(
+                      height: 18.0,
+                    ),
+                    RoundedButton(context, "Submit", () {
+                      FocusScope.of(context).unfocus();
+                      saveContact();
+                    }),
+                  ],
+                ),
               ),
             ),
           ),

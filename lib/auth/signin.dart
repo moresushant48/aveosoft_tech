@@ -34,51 +34,54 @@ class _SignInState extends State<SignIn> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Form(
-            key: _signInKey,
-            child: SizedBox(
-              // height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.bold,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _signInKey,
+              child: SizedBox(
+                // height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 58.0,
                     ),
-                  ),
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  RoundedTextField(
-                    context,
-                    emailController,
-                    hintText: 'Please enter your Email',
-                    keyboardType: TextInputType.emailAddress,
-                    validator: Validators.validateEmail,
-                  ),
-                  RoundedTextField(
-                    context,
-                    passwordController,
-                    hintText: 'Please enter your Password',
-                    obsecureText: true,
-                    keyboardType: TextInputType.visiblePassword,
-                    validator: Validators.validatePassword,
-                  ),
-                  SizedBox(
-                    height: 18.0,
-                  ),
-                  RoundedButton(context, "Login", () {
-                    FocusScope.of(context).unfocus();
-                    signIn();
-                  }),
-                ],
+                    Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 32.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    RoundedTextField(
+                      context,
+                      emailController,
+                      hintText: 'Please enter your Email',
+                      keyboardType: TextInputType.emailAddress,
+                      validator: Validators.validateEmail,
+                    ),
+                    RoundedTextField(
+                      context,
+                      passwordController,
+                      hintText: 'Please enter your Password',
+                      obsecureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+                      validator: Validators.validatePassword,
+                    ),
+                    SizedBox(
+                      height: 18.0,
+                    ),
+                    RoundedButton(context, "Login", () {
+                      FocusScope.of(context).unfocus();
+                      signIn();
+                    }),
+                  ],
+                ),
               ),
             ),
           ),

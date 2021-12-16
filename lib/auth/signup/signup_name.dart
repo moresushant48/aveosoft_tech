@@ -38,59 +38,62 @@ class _SignUpNameState extends State<SignUpName> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Form(
-            key: _signUpNameKey,
-            child: SizedBox(
-              // height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          "What is your Name?",
-                          softWrap: true,
-                          overflow: TextOverflow.visible,
-                          style: TextStyle(
-                            fontSize: 32.0,
-                            fontWeight: FontWeight.bold,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _signUpNameKey,
+              child: SizedBox(
+                // height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            "What is your Name?",
+                            softWrap: true,
+                            overflow: TextOverflow.visible,
+                            style: TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 58.0,
-                  ),
-                  RoundedTextField(
-                    context,
-                    fNameController,
-                    hintText: 'Please enter First Name',
-                    keyboardType: TextInputType.name,
-                    validator: Validators.validateName,
-                  ),
-                  RoundedTextField(
-                    context,
-                    lNameController,
-                    hintText: 'Please enter Last Name',
-                    keyboardType: TextInputType.name,
-                    validator: Validators.validateName,
-                  ),
-                  SizedBox(
-                    height: 18.0,
-                  ),
-                  RoundedButton(context, "Continue", () {
-                    FocusScope.of(context).unfocus();
-                    saveName();
-                  }),
-                ],
+                      ],
+                    ),
+                    SizedBox(
+                      height: 58.0,
+                    ),
+                    RoundedTextField(
+                      context,
+                      fNameController,
+                      hintText: 'Please enter First Name',
+                      keyboardType: TextInputType.name,
+                      validator: Validators.validateName,
+                    ),
+                    RoundedTextField(
+                      context,
+                      lNameController,
+                      hintText: 'Please enter Last Name',
+                      keyboardType: TextInputType.name,
+                      validator: Validators.validateName,
+                    ),
+                    SizedBox(
+                      height: 18.0,
+                    ),
+                    RoundedButton(context, "Continue", () {
+                      FocusScope.of(context).unfocus();
+                      saveName();
+                    }),
+                  ],
+                ),
               ),
             ),
           ),
