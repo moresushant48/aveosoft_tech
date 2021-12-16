@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors,prefer_const_literals_to_create_immutables
 
 import 'package:aveosoft_tech/controllers/user.controller.dart';
-import 'package:aveosoft_tech/dashboard/homepage.dart';
+import 'package:aveosoft_tech/screens/dashboard/homepage.dart';
 import 'package:aveosoft_tech/model/user.model.dart';
 import 'package:aveosoft_tech/services/auth.service.dart';
 import 'package:aveosoft_tech/services/dbstore.service.dart';

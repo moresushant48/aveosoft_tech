@@ -85,6 +85,7 @@ class _SignUpAddressState extends State<SignUpAddress> {
                     pincodeController,
                     hintText: 'Please enter Pincode',
                     keyboardType: TextInputType.number,
+                    maxLength: 6,
                     validator: Validators.validatePincode,
                   ),
                   SizedBox(

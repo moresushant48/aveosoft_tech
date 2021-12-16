@@ -14,6 +14,7 @@ Widget RoundedTextField(
   TextInputType keyboardType = TextInputType.name,
   bool obsecureText = false,
   validator,
+  int? maxLength,
 }) {
   initialValue.isNotEmpty ? controller.text = initialValue : "";
 
@@ -26,6 +27,7 @@ Widget RoundedTextField(
       keyboardType: keyboardType,
       obscureText: obsecureText,
       inputFormatters: textInputFormatter ?? [],
+      maxLength: maxLength,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white10,

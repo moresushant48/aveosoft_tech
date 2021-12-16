@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:aveosoft_tech/auth/auth.dart';
-import 'package:aveosoft_tech/dashboard/homepage.dart';
+import 'package:aveosoft_tech/screens/dashboard/homepage.dart';
 import 'package:aveosoft_tech/services/auth.service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
