@@ -39,7 +39,7 @@ class AuthenticationHelper {
                   icon: Icon(Icons.error_outline_sharp, color: Colors.white),
                   snackPosition: SnackPosition.BOTTOM,
                 );
-                throw e;
+                return;
               },
               codeSent: (String verificationId, int? resendToken) {
                 Get.to(() => OtpScreen(), arguments: [verificationId]);
