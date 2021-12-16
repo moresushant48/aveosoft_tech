@@ -87,7 +87,7 @@ class _PhoneLoginState extends State<PhoneLogin> {
         // Sign In up with email and password.
         Future.delayed(Duration(seconds: 2), () async {
           await AuthenticationHelper()
-              .getVerificationId(phoneNumber: "$phoneController.text.trim()")
+              .getVerificationId(phoneNumber: phoneController.text.trim())
               .then((value) {
             if (!GetUtils.isNull(value)) {
               Get.back();
